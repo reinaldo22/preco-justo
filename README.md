@@ -20,6 +20,29 @@
 ## Pré-requisitos
 - Java 17 ou superior
 - GRADLE latest
-- Docker (Para rodar o banco postgres)
+- Docker (Para rodar o banco postgres:latest)
 
 ## Executando o Projeto
+- crie o compose do postgres
+- 1 - Procure o compose do postgres na raiz do projeto e execute:
+
+
+   ```sh
+   docker-compose up -d
+   ```
+- 2 - Adicione as configurações do banco em src->main->resources-> application.properties:
+
+```sh
+    Postgres
+    spring.datasource.url=jdbc:postgresql://localhost:5432/mydatabase
+    spring.datasource.username=myuser
+    spring.datasource.password=secret
+    spring.datasource.driverClassName=org.postgresql.Driver
+
+    logging.level.org.springframework.web=DEBUG
+
+    spring.jpa.show-sql=true
+    spring.jpa.generate-ddl=true
+   ```
+
+- 3 - execute o projeto setando o run da sua IDE
