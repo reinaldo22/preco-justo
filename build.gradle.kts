@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.4.4"
 	id("io.spring.dependency-management") version "1.1.7"
+	id("org.flywaydb.flyway") version "9.8.1"
 }
 
 group = "com.patos"
@@ -41,3 +42,13 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+flyway {
+	url = System.getenv("FLYWAY_DATABASE_URL") ?: "jdbc:postgresql://localhost:5432/mydatabase"
+	user = System.getenv("FLYWAY_DATABASE_USER") ?: "myuser"
+	password = System.getenv("FLYWAY_DATABASE_PASSWORD") ?: "secret"
+	schemas = arrayOf("public")
+	outOfOrder = true
+
+}
+

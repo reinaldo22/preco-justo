@@ -46,3 +46,7 @@
    ```
 
 - 3 - execute o projeto setando o run da sua IDE
+
+- 4 - execute as migrations, lá já possui os inserts
+
+- 5 - rode na porta 8080
